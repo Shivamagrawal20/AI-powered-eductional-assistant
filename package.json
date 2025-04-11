@@ -1,0 +1,15 @@
+{
+  "name": "ai-teacher-wrapper",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "cd ai-tutor && npm start",
+    "build": "cd ai-tutor && npm run build",
+    "test": "cd ai-tutor && npm test",
+    "eject": "cd ai-tutor && npm run eject"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "mongoose": "^8.13.2"
+  }
+}

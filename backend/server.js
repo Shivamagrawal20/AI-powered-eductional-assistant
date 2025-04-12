@@ -15,7 +15,6 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(auth);
 app.use(trackActivity);
 
 // Debug middleware to log requests
@@ -26,7 +25,7 @@ app.use((req, res, next) => {
 
 // Routes
 app.use('/api/users', userRoutes);
-app.use('/api/admin', adminRoutes);
+app.use('/api/admin', auth, adminAuth, adminRoutes);
 
 // Test route
 app.get('/test', (req, res) => {

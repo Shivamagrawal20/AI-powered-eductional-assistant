@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: './'
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx']
@@ -28,7 +28,10 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
-        type: 'asset/resource'
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/[hash][ext][query]'
+        }
       }
     ]
   },
@@ -36,7 +39,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       favicon: './public/favicon.ico',
-      publicPath: '/'
+      publicPath: './'
     })
   ],
   devServer: {
@@ -44,8 +47,7 @@ module.exports = {
     port: 3000,
     hot: true,
     static: {
-      directory: path.join(__dirname, 'public'),
-      publicPath: '/'
+      directory: path.join(__dirname, 'public')
     }
   }
 }; 

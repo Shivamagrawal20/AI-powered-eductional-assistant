@@ -8,8 +8,8 @@
     "build": "webpack --mode production",
     "test": "jest",
     "lint": "eslint src --ext .ts,.tsx",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build && touch dist/.nojekyll",
+    "deploy": "gh-pages -d dist --dotfiles"
   },
   "homepage": "https://shivamagrawal20.github.io/AI-powered-eductional-assistant",
   "dependencies": {

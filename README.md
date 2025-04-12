@@ -1,53 +1,146 @@
-# AI-powered-eductional-assistant
+# AI Teacher Platform
 
+A full-stack AI-powered tutoring platform built with React, Node.js, and MongoDB.
 
-## AI-Powered Educational Tutor: Learning Accelerator
+## Current Status
 
-### Project Overview
-An intelligent educational tutor powered by Groq's ultra-fast inference capabilities that provides personalized, real-time learning assistance across multiple subjects through text, audio, and visual inputs.
+The project is in development with the following components running:
+- Backend server running on port 5001
+- Frontend development server (with some configuration issues)
+- MongoDB connection established
 
-### Key Features
+## Known Issues
 
-#### Multimodal Input Processing
-- **Text Recognition**: Students can type questions or upload written work
-- **Image Processing**: Scan handwritten math problems, diagrams, or graphs
-- **Voice Interaction**: Ask questions verbally for a natural learning experience
+1. Frontend PostCSS Configuration:
+   - Missing `postcss-flexbugs-fixes` plugin
+   - Error: `Loading PostCSS "postcss-flexbugs-fixes" plugin failed: Cannot find module 'postcss-flexbugs-fixes'`
+   - Solution: Run `npm install --save-dev postcss-flexbugs-fixes postcss-preset-env`
 
-#### Subject Coverage
-- **Mathematics**: Step-by-step problem solving with visual explanations
-- **Programming**: Code analysis, error detection, and optimization suggestions
-- **Science**: Interactive explanations of concepts with visual aids
-- **Language Arts**: Grammar correction, writing assistance, and vocabulary building
+2. Port Conflict:
+   - Frontend development server default port (3000) is in use
+   - Error: `Error: listen EADDRINUSE: address already in use :::3000`
+   - Solution: Update webpack.config.js to use port 3001
 
-#### Real-Time Feedback System
-- Instant assessment of student work using Groq's low-latency processing
-- Personalized feedback tailored to individual learning styles
-- Progress tracking and adaptive difficulty adjustment
+3. Backend Vulnerabilities:
+   - 3 high severity vulnerabilities reported
+   - Run `npm audit fix --force` in backend directory to address
 
-#### Interactive Learning Elements
-- Visual concept demonstrations using dynamically generated graphics
-- Voice-guided tutorials with natural, conversational interactions
-- Gamified learning challenges to boost engagement
+## Tech Stack
 
-### Technical Implementation
-- Frontend: React-based responsive interface accessible on multiple devices
-- Backend: Node.js server with Groq API integration
-- Storage: Secure database for student profiles and learning analytics
-- Deployment: Cloud-based solution for accessibility anywhere
+### Frontend
+- React 18 with TypeScript
+- TailwindCSS for styling
+- Webpack 5 for bundling
+- React Router v6 for navigation
+- Framer Motion for animations
+- Axios for API calls
 
-### Educational Impact
-- Reduces barriers to quality education through 24/7 AI assistance
-- Personalizes learning paths based on individual strengths and weaknesses
-- Provides instant feedback, eliminating wait times in traditional educational settings
-- Supports different learning modalities (visual, auditory, reading/writing)
+### Backend
+- Node.js with Express
+- MongoDB with Mongoose
+- JWT for authentication
+- bcrypt for password hashing
+- Nodemon for development
 
-### User Experience Focus
-- Clean, intuitive interface designed for learners of all ages
-- Accessibility features for students with different abilities
-- Customizable interface based on age group and learning preferences
-- Minimal latency thanks to Groq's high-speed inference capabilities
+## Installation
 
-This project leverages Groq's strengths in processing multiple data types with exceptionally low latency, creating an educational tool that can truly respond in real-time to student needs - something crucial for maintaining engagement and effective learning outcomes.
+1. Clone the repository:
+```bash
+git clone <your-repository-url>
+cd ai-teacher
+```
+
+2. Install backend dependencies:
+```bash
+cd backend
+npm install
+npm audit fix --force  # Fix security vulnerabilities
+```
+
+3. Install frontend dependencies:
+```bash
+cd ../ai-tutor
+npm install
+npm install --save-dev postcss-flexbugs-fixes postcss-preset-env  # Fix PostCSS issues
+```
+
+4. Set up environment variables:
+   - Copy `.env.example` to `.env` in the backend directory
+   - Update the values with your own:
+```env
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/?retryWrites=true&w=majority
+JWT_SECRET=your_jwt_secret_here
+PORT=5001
+```
+
+## Running the Application
+
+1. Start the backend server:
+```bash
+cd backend
+npm run dev
+```
+The backend will run on http://localhost:5001
+
+2. In a new terminal, start the frontend development server:
+```bash
+cd ai-tutor
+npm start
+```
+The frontend will run on http://localhost:3000 (or 3001 if 3000 is in use)
+
+## Project Structure
+
+```
+ai-teacher/
+├── backend/                 # Backend server code
+│   ├── models/             # MongoDB models (User.js, etc.)
+│   ├── routes/             # API routes (adminRoutes.js, userRoutes.js)
+│   ├── middleware/         # Custom middleware (auth.js, adminAuth.js)
+│   └── server.js          # Server entry point
+│
+├── ai-tutor/               # Frontend React application
+│   ├── src/
+│   │   ├── components/    # Reusable components
+│   │   │   ├── auth/     # Authentication components
+│   │   │   └── layout/   # Layout components
+│   │   ├── pages/        # Page components
+│   │   ├── contexts/     # React contexts
+│   │   └── services/     # API services
+│   └── public/           # Static files
+```
+
+## Development Notes
+
+1. Environment Variables:
+   - Backend uses PORT 5001
+   - MongoDB connection requires valid Atlas credentials
+   - JWT secret should be updated for production
+
+2. Frontend Configuration:
+   - PostCSS and Tailwind need proper setup
+   - Webpack configured for hot reloading
+   - TypeScript strict mode enabled
+
+## Security Notes
+
+- The `.env` file containing sensitive information is not included in the repository
+- Make sure to update the MongoDB connection string and JWT secret before deploying
+- All passwords are hashed using bcrypt before storing
+- JWT is used for secure authentication
+- Role-based access control implemented for admin features
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details
 
 
 

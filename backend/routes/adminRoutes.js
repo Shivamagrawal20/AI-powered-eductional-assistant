@@ -19,18 +19,46 @@ router.get('/users', auth, adminAuth, async (req, res) => {
 router.patch('/users/:id/role', auth, adminAuth, async (req, res) => {
     try {
         const { role } = req.body;
-        const user = await User.findById(req.params.id);
+        const userId = req.params.id;
+
+        if (!userId) {
+            return res.status(400).json({ message: 'User ID is required' });
+        }
+
+        if (!['user', 'admin', 'superadmin'].includes(role)) {
+            return res.status(400).json({ message: 'Invalid role specified' });
+        }
+
+        const user = await User.findById(userId);
         
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
 
+        // Prevent modifying superadmin role
+        if (user.role === 'superadmin' && req.user.role !== 'superadmin') {
+            return res.status(403).json({ message: 'Cannot modify superadmin role' });
+        }
+
         user.role = role;
+        user.isAdmin = role !== 'user';
         await user.save();
 
-        res.json({ message: 'User role updated successfully' });
+        res.json({ 
+            message: 'User role updated successfully',
+            user: {
+                id: user._id,
+                name: user.name,
+                email: user.email,
+                role: user.role,
+                isAdmin: user.isAdmin
+            }
+        });
     } catch (err) {
-        console.error(err);
+        console.error('Update role error:', err);
+        if (err.name === 'CastError') {
+            return res.status(400).json({ message: 'Invalid user ID format' });
+        }
         res.status(500).json({ message: 'Server error' });
     }
 });

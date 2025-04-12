@@ -78,6 +78,31 @@ userSchema.methods.isAdminUser = function() {
     return this.isAdmin || this.role === 'admin' || this.role === 'superadmin';
 };
 
+// Add method to check if user is superadmin
+userSchema.methods.isSuperAdmin = function() {
+    return this.role === 'superadmin';
+};
+
+// Add method to check if user can modify another user's role
+userSchema.methods.canModifyUserRole = function(targetUser) {
+    if (this.isSuperAdmin()) return true;
+    if (this.role === 'admin' && targetUser.role !== 'superadmin') return true;
+    return false;
+};
+
+// Pre-save middleware to handle role changes
+userSchema.pre('save', function(next) {
+    // Update isAdmin based on role
+    this.isAdmin = this.role !== 'user';
+    
+    // Ensure superadmin has all permissions
+    if (this.role === 'superadmin') {
+        this.permissions = ['manage_users', 'manage_content', 'view_analytics', 'manage_settings'];
+    }
+    
+    next();
+});
+
 const User = mongoose.model('User', userSchema);
 
 module.exports = User; 

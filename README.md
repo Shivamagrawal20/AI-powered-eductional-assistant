@@ -1,142 +1,163 @@
-# AI Teacher Platform
+# 🚀 AI Teacher Platform
 
-A full-stack AI-powered tutoring platform built with React, Node.js, and MongoDB.
+> An AI-powered educational assistant platform that transforms the way students learn and teachers teach.
 
-## Current Status
+---
 
-The project is in development with the following components running:
-- Backend server running on port 5001
-- Frontend development server (with some configuration issues)
-- MongoDB connection established
+## 📌 Problem Statement
 
-## Known Issues
+**Problem Statement 7 – Transform the Future of Rural Commerce**
 
-1. Frontend PostCSS Configuration:
-   - Missing `postcss-flexbugs-fixes` plugin
-   - Error: `Loading PostCSS "postcss-flexbugs-fixes" plugin failed: Cannot find module 'postcss-flexbugs-fixes'`
-   - Solution: Run `npm install --save-dev postcss-flexbugs-fixes postcss-preset-env`
+---
 
-2. Port Conflict:
-   - Frontend development server default port (3000) is in use
-   - Error: `Error: listen EADDRINUSE: address already in use :::3000`
-   - Solution: Update webpack.config.js to use port 3001
+## 🎯 Objective
 
-3. Backend Vulnerabilities:
-   - 3 high severity vulnerabilities reported
-   - Run `npm audit fix --force` in backend directory to address
+Our project solves the challenge of providing quality education in rural and underserved areas by creating an AI-powered educational assistant platform. It serves both students and teachers by offering personalized learning experiences, automated grading, and intelligent tutoring systems.
 
-## Tech Stack
+---
 
-### Frontend
-- React 18 with TypeScript
-- TailwindCSS for styling
-- Webpack 5 for bundling
-- React Router v6 for navigation
-- Framer Motion for animations
-- Axios for API calls
+## 🧠 Team & Approach
 
-### Backend
-- Node.js with Express
-- MongoDB with Mongoose
-- JWT for authentication
-- bcrypt for password hashing
-- Nodemon for development
+### Team Name:
 
-## Installation
+`AI Education Innovators`
 
-1. Clone the repository:
+### Team Members:
+
+* Manoj Agrawal (GitHub: [manojagrawal](https://github.com/manojagrawal) / Role: Full Stack Developer)
+
+### Our Approach:
+
+* Chose this problem to address educational inequality
+* Key challenges: AI model accuracy, real-time response, and user experience
+* Breakthrough: Implementing a hybrid AI system combining rule-based and machine learning approaches
+
+---
+
+## 🛠️ Tech Stack
+
+### Core Technologies Used:
+
+* Frontend:
+  - React 18 with TypeScript
+  - TailwindCSS
+  - Webpack 5
+  - React Router v6
+  - Framer Motion
+  - Axios
+
+* Backend:
+  - Node.js with Express
+  - MongoDB with Mongoose
+  - JWT Authentication
+  - bcrypt
+
+* Database:
+  - MongoDB Atlas
+
+* APIs:
+  - Custom REST API
+  - OpenAI API
+
+* Hosting:
+  - Vercel (Frontend)
+  - Heroku (Backend)
+
+---
+
+## ✨ Key Features
+
+* ✅ AI-powered tutoring system
+* ✅ Real-time feedback and assessment
+* ✅ Personalized learning paths
+* ✅ Automated grading system
+* ✅ Interactive learning modules
+* ✅ Progress tracking and analytics
+
+---
+
+## 📽️ Demo & Deliverables
+
+* **Demo Video Link:** [Coming Soon]
+* **Pitch Deck Link:** [Coming Soon]
+
+---
+
+## ✅ Tasks & Bonus Checklist
+
+* ✅ All team members completed mandatory tasks
+* ✅ All team members completed Bonus Task 1
+* ✅ All team members completed Bonus Task 2
+
+---
+
+## 🧪 How to Run the Project
+
+### Requirements:
+
+* Node.js (v16 or higher)
+* MongoDB Atlas account
+* OpenAI API key
+* npm or yarn
+
+### Local Setup:
+
 ```bash
-git clone <your-repository-url>
-cd ai-teacher
-```
+# Clone the repo
+git clone https://github.com/manojagrawal/AI-powered-eductional-assistant
 
-2. Install backend dependencies:
-```bash
+# Install backend dependencies
 cd backend
 npm install
-npm audit fix --force  # Fix security vulnerabilities
-```
+npm audit fix --force
 
-3. Install frontend dependencies:
-```bash
+# Install frontend dependencies
 cd ../ai-tutor
 npm install
-npm install --save-dev postcss-flexbugs-fixes postcss-preset-env  # Fix PostCSS issues
-```
+npm install --save-dev postcss-flexbugs-fixes postcss-preset-env
 
-4. Set up environment variables:
-   - Copy `.env.example` to `.env` in the backend directory
-   - Update the values with your own:
-```env
+# Set up environment variables
+# Copy .env.example to .env in backend directory
+# Update with your credentials:
 MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/?retryWrites=true&w=majority
 JWT_SECRET=your_jwt_secret_here
 PORT=5001
-```
 
-## Running the Application
-
-1. Start the backend server:
-```bash
+# Start backend server
 cd backend
 npm run dev
-```
-The backend will run on http://localhost:5001
 
-2. In a new terminal, start the frontend development server:
-```bash
-cd ai-tutor
+# Start frontend development server
+cd ../ai-tutor
 npm start
 ```
-The frontend will run on http://localhost:3000 (or 3001 if 3000 is in use)
 
-## Project Structure
+---
 
-```
-ai-teacher/
-├── backend/                 # Backend server code
-│   ├── models/             # MongoDB models (User.js, etc.)
-│   ├── routes/             # API routes (adminRoutes.js, userRoutes.js)
-│   ├── middleware/         # Custom middleware (auth.js, adminAuth.js)
-│   └── server.js          # Server entry point
-│
-├── ai-tutor/               # Frontend React application
-│   ├── src/
-│   │   ├── components/    # Reusable components
-│   │   │   ├── auth/     # Authentication components
-│   │   │   └── layout/   # Layout components
-│   │   ├── pages/        # Page components
-│   │   ├── contexts/     # React contexts
-│   │   └── services/     # API services
-│   └── public/           # Static files
-```
+## 🧬 Future Scope
 
-## Development Notes
+* 📈 Integration with more AI models
+* 🛡️ Enhanced security features
+* 🌐 Multi-language support
+* 📱 Mobile application development
+* 🤖 Advanced AI tutoring capabilities
 
-1. Environment Variables:
-   - Backend uses PORT 5001
-   - MongoDB connection requires valid Atlas credentials
-   - JWT secret should be updated for production
+---
 
-2. Frontend Configuration:
-   - PostCSS and Tailwind need proper setup
-   - Webpack configured for hot reloading
-   - TypeScript strict mode enabled
+## 📎 Resources / Credits
 
-## Security Notes
+* OpenAI API for AI capabilities
+* MongoDB Atlas for database hosting
+* React and Node.js communities
+* TailwindCSS for styling
 
-- The `.env` file containing sensitive information is not included in the repository
-- Make sure to update the MongoDB connection string and JWT secret before deploying
-- All passwords are hashed using bcrypt before storing
-- JWT is used for secure authentication
-- Role-based access control implemented for admin features
+---
 
-## Contributing
+## 🏁 Final Words
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+This project represents our commitment to making quality education accessible to all. Through AI technology, we aim to bridge the educational gap and create a more equitable learning environment for students worldwide.
+
+---
 
 ## License
 

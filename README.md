@@ -24,8 +24,9 @@ Our project solves the challenge of providing quality education in rural and und
 
 ### Team Members:
 
-* Manoj Agrawal (GitHub: [manojagrawal](https://github.com/manojagrawal) / Role: Full Stack Developer)
-
+* Shivam  Agrawal
+* Swayam Verma
+* Vivek Kumar 
 ### Our Approach:
 
 * Chose this problem to address educational inequality

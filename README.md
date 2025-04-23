@@ -20,7 +20,7 @@ Our project solves the challenge of providing quality education in rural and und
 
 ### Team Name:
 
-`AI Education Innovators`
+`Team X`
 
 ### Team Members:
 
